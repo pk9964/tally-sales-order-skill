@@ -1,0 +1,22 @@
+<!-- Find Sales Orders with an exact reference on one date. Replace COMPANY, YYYYMMDD and REF. -->
+<ENVELOPE>
+  <HEADER><VERSION>1</VERSION><TALLYREQUEST>EXPORT</TALLYREQUEST><TYPE>COLLECTION</TYPE><ID>SO By Reference</ID></HEADER>
+  <BODY><DESC>
+    <STATICVARIABLES>
+      <SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT>
+      <SVCURRENTCOMPANY>COMPANY</SVCURRENTCOMPANY>
+      <SVFROMDATE TYPE="Date">YYYYMMDD</SVFROMDATE>
+      <SVTODATE TYPE="Date">YYYYMMDD</SVTODATE>
+    </STATICVARIABLES>
+    <TDL><TDLMESSAGE>
+      <COLLECTION NAME="SO By Reference" ISMODIFY="No">
+        <TYPE>Voucher</TYPE>
+        <NATIVEMETHOD>Date, VoucherNumber, VoucherTypeName, PartyLedgerName, GUID, MasterID, Reference, IsCancelled, IsOptional, Amount, AllInventoryEntries, AllLedgerEntries</NATIVEMETHOD>
+        <FILTER>SO Type</FILTER><FILTER>SO Reference</FILTER><FILTER>SO Date</FILTER>
+      </COLLECTION>
+      <SYSTEM TYPE="Formulae" NAME="SO Type">$VoucherTypeName = "Sales Order"</SYSTEM>
+      <SYSTEM TYPE="Formulae" NAME="SO Reference">$Reference = "REF"</SYSTEM>
+      <SYSTEM TYPE="Formulae" NAME="SO Date">$Date &gt;= ##SVFromDate AND $Date &lt;= ##SVToDate</SYSTEM>
+    </TDLMESSAGE></TDL>
+  </DESC></BODY>
+</ENVELOPE>
