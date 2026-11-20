@@ -1,0 +1,20 @@
+{
+  "company": "Sample Foods - (26-27)",
+  "reference": "WA-20261120-0042",
+  "orderDate": "2026-11-20",
+  "dueDate": "2026-11-21",
+  "party": "Sri Murugan Stores",
+  "narration": "Ordered on WhatsApp",
+  "ledgers": {
+    "sales": "Sales GST 5%",
+    "cgst": "CGST Output",
+    "sgst": "SGST Output",
+    "roundOff": "Round Off"
+  },
+  "taxPercent": { "cgst": 2.5, "sgst": 2.5 },
+  "roundToRupee": true,
+  "lines": [
+    { "item": "Veg Momos 500g", "unit": "Pcs", "quantity": 10, "rate": 120, "discountPercent": 0, "taxability": "Taxable", "hsn": "19059090" },
+    { "item": "French Fries 2.5kg", "unit": "Pcs", "quantity": 4, "rate": 385.5, "discountPercent": 2, "taxability": "Taxable", "hsn": "20041000" }
+  ]
+}
