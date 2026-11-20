@@ -1,0 +1,18 @@
+<!-- Read one master by exact name. Replace COMPANY, KIND (Ledger or StockItem) and NAME. -->
+<ENVELOPE>
+  <HEADER><VERSION>1</VERSION><TALLYREQUEST>EXPORT</TALLYREQUEST><TYPE>COLLECTION</TYPE><ID>Master By Name</ID></HEADER>
+  <BODY><DESC>
+    <STATICVARIABLES>
+      <SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT>
+      <SVCURRENTCOMPANY>COMPANY</SVCURRENTCOMPANY>
+    </STATICVARIABLES>
+    <TDL><TDLMESSAGE>
+      <COLLECTION NAME="Master By Name" ISMODIFY="No">
+        <TYPE>KIND</TYPE>
+        <NATIVEMETHOD>Name, GUID, MailingName, BaseUnits, Parent, LedStateName, PartyGSTIN, ClosingBalance</NATIVEMETHOD>
+        <FILTER>Exact Name</FILTER>
+      </COLLECTION>
+      <SYSTEM TYPE="Formulae" NAME="Exact Name">$Name = "NAME"</SYSTEM>
+    </TDLMESSAGE></TDL>
+  </DESC></BODY>
+</ENVELOPE>
